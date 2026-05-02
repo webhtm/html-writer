@@ -22,7 +22,6 @@
             --font-editor: 'Times New Roman', serif;
             --anim-speed: 0.3s;
         }
-
         body.dark-mode {
             --bg-body: #0f172a;
             --bg-panel: #1e293b;
@@ -32,9 +31,7 @@
             --primary-bg: #312e81;
             --primary: #818cf8;
         }
-
         * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
-
         body {
             font-family: var(--font-ui);
             background: var(--bg-body);
@@ -44,7 +41,6 @@
             display: flex;
             overflow: hidden;
         }
-
         /* --- ICONS --- */
         .icon { 
             width: 18px; height: 18px; 
@@ -52,10 +48,8 @@
             stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; 
             pointer-events: none; flex-shrink: 0;
         }
-
         /* --- LAYOUT --- */
         .app-shell { display: flex; width: 100%; height: 100%; }
-
         /* Sidebar */
         #sidebar {
             width: var(--sidebar-width);
@@ -73,7 +67,6 @@
             backdrop-filter: blur(2px);
         }
         .mobile-overlay.active { opacity: 1; pointer-events: auto; }
-
         @media (max-width: 768px) {
             #sidebar {
                 position: fixed; height: 100%; left: 0; top: 0;
@@ -83,13 +76,11 @@
             }
             #sidebar.mobile-open { transform: translateX(0); }
         }
-
         /* Main Area */
         #main {
             flex: 1; display: flex; flex-direction: column; min-width: 0;
             position: relative; background: var(--bg-body);
         }
-
         /* --- HEADER --- */
         .top-bar {
             height: 50px; background: var(--bg-panel);
@@ -97,7 +88,6 @@
             display: flex; align-items: center; padding: 0 10px; gap: 10px;
             flex-shrink: 0;
         }
-
         #doc-title {
             background: transparent; border: none; font-weight: 600; font-size: 15px;
             color: var(--text-main); flex: 1; padding: 5px; border-radius: 4px;
@@ -114,7 +104,6 @@
             position: relative;
             flex-shrink: 0;
         }
-
         .toolbar-track {
             display: flex;
             width: 200%; /* Two slides */
@@ -137,9 +126,7 @@
             -webkit-overflow-scrolling: touch;
         }
         .toolbar-slide::-webkit-scrollbar { display: none; }
-
         .toolbar-container.show-tools .toolbar-track { transform: translateX(-50%); }
-
         /* Toolbar Components */
         .cat-btn {
             height: 40px; padding: 0 16px; 
@@ -164,7 +151,6 @@
         .tool-btn span { white-space: nowrap; }
         .tool-btn:hover { background: var(--bg-body); border-color: var(--border); }
         .tool-btn.active { background: var(--primary-bg); color: var(--primary); border-color: rgba(99, 102, 241, 0.2); }
-
         .back-btn {
             height: 38px; width: 38px; border-radius: 50%;
             background: var(--bg-body); border: 1px solid var(--border);
@@ -174,7 +160,6 @@
             box-shadow: 2px 0 5px rgba(0,0,0,0.05);
         }
         .back-btn:hover { color: var(--primary); border-color: var(--primary); }
-
         .tool-select {
             height: 38px; border-radius: 6px; border: 1px solid var(--border);
             background: var(--bg-body); color: var(--text-main);
@@ -182,7 +167,6 @@
         }
         .tool-select option { background: var(--bg-panel); color: var(--text-main); }
         .divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
-
         /* --- EDITOR AREA --- */
         .editor-scroller {
             flex: 1; overflow-y: auto; padding: 40px 20px;
@@ -190,7 +174,6 @@
             background: var(--bg-body);
             position: relative;
         }
-
         .page {
             background: white; width: 100%; max-width: 816px; min-height: 1000px;
             padding: 60px; box-shadow: var(--shadow);
@@ -198,7 +181,6 @@
             outline: none; display: none;
         }
         body.dark-mode .page { background: #1e293b; color: #e2e8f0; }
-
         /* Empty State */
         .empty-state {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -208,32 +190,25 @@
         
         .empty-icon { 
             width: 100px; height: 100px; margin-bottom: 20px;
-            fill: none; /* No Fill */
-            stroke: currentColor;
-            stroke-width: 1.5;
-            color: #000; opacity: 0.1; /* Light mode: Black, 10% opacity */
+            fill: none; stroke: currentColor; stroke-width: 1.5;
+            color: #000; opacity: 0.1;
         }
         
         .empty-text { font-size: 20px; font-weight: 600; color: var(--text-muted); opacity: 0.5; }
-
-        body.dark-mode .empty-icon {
-            color: #fff; opacity: 0.1; /* Dark mode: White, 10% opacity */
-        }
-
+        body.dark-mode .empty-icon { color: #fff; opacity: 0.1; }
+        
         /* Editor Content Styles */
-        .page img { max-width: 100%; height: auto; }
+        .page img, .page video, .page .custom-shape { max-width: 100%; display: inline-block; }
         .page table { width: 100%; border-collapse: collapse; margin: 10px 0; }
         .page td, .page th { border: 1px solid #94a3b8; padding: 8px; }
         .page blockquote { border-left: 3px solid var(--primary); padding-left: 10px; margin: 10px 0; color: var(--text-muted); font-style: italic; }
         .page pre { background: #333; color: #fff; padding: 10px; border-radius: 4px; overflow-x: auto; font-family: monospace; }
         .page a { color: var(--primary); text-decoration: underline; }
-
         .source-view {
             position: absolute; inset: 0; z-index: 10; background: #1e293b; color: #a5b4fc;
             padding: 20px; font-family: monospace; border: none; resize: none; display: none;
             width: 100%; height: 100%; font-size: 14px;
         }
-
         /* --- SIDEBAR COMPONENTS --- */
         .sidebar-header { padding: 16px; border-bottom: 1px solid var(--border); }
         .file-list { flex: 1; overflow-y: auto; padding: 8px; }
@@ -257,14 +232,12 @@
             background: var(--bg-body); color: var(--text-main); font-size: 13px;
         }
         .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; color: var(--text-muted); }
-
         /* --- BOTTOM BAR --- */
         .status-bar {
             height: 30px; background: var(--bg-panel); border-top: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 12px; font-size: 11px; color: var(--text-muted); flex-shrink: 0;
         }
-
         /* --- TOAST --- */
         #toast {
             position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px);
@@ -273,7 +246,6 @@
             backdrop-filter: blur(4px); text-align: center;
         }
         #toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
-
         /* --- MODAL --- */
         .modal-wrap {
             position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100;
@@ -284,12 +256,12 @@
             border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
         .modal h3 { margin: 0 0 15px 0; font-size: 16px; }
-        .modal input { width: 100%; padding: 10px; margin-bottom: 15px; background: var(--bg-body); border: 1px solid var(--border); color: var(--text-main); border-radius: 6px; }
+        .modal input, .modal textarea { width: 100%; padding: 10px; margin-bottom: 15px; background: var(--bg-body); border: 1px solid var(--border); color: var(--text-main); border-radius: 6px; font-family: inherit;}
+        .modal textarea { height: 100px; resize: none; font-family: monospace; font-size: 13px;}
         .modal-btns { display: flex; justify-content: flex-end; gap: 10px; }
         .btn { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 13px; font-weight: 500; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-ghost { background: transparent; color: var(--text-muted); }
-
         /* --- FULLSCREEN OVERRIDES --- */
         body.fullscreen #sidebar, 
         body.fullscreen .top-bar, 
@@ -303,6 +275,59 @@
         }
         body.fullscreen .source-view { z-index: 200; }
 
+        /* --- NEW FEATURE STYLES --- */
+        .context-menu {
+            position: absolute; display: none; z-index: 1000;
+            background: var(--bg-panel); border: 1px solid var(--border);
+            border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 5px 0; min-width: 180px; font-size: 13px;
+        }
+        body.dark-mode .context-menu { box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .context-menu-item {
+            padding: 8px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px;
+            color: var(--text-main); font-weight: 500; transition: background 0.1s;
+        }
+        .context-menu-item:hover { background: var(--bg-body); color: var(--primary); }
+        .context-menu-divider { height: 1px; background: var(--border); margin: 4px 0; }
+        .export-btn-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .export-btn-group .btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; }
+
+        /* INTERACTIVE DRAG/RESIZE OVERLAY */
+        .interactive-overlay {
+            position: absolute; border: 2px dashed var(--primary); pointer-events: none;
+            z-index: 150; display: none;
+        }
+        .io-drag-handle {
+            position: absolute; top: -14px; left: -14px; width: 28px; height: 28px;
+            background: var(--primary); color: white; border-radius: 50%;
+            pointer-events: auto; cursor: move; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .io-resize-handle {
+            position: absolute; bottom: -8px; right: -8px; width: 16px; height: 16px;
+            background: var(--primary); border: 2px solid white; border-radius: 50%;
+            pointer-events: auto; cursor: se-resize; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* TABLE TOOLS MENU */
+        .io-table-tools {
+            position: absolute; top: -46px; left: 0;
+            background: var(--bg-panel); border: 1px solid var(--border);
+            border-radius: 6px; display: flex; gap: 5px; padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15); pointer-events: auto;
+            white-space: nowrap; z-index: 160;
+        }
+        body.dark-mode .io-table-tools { box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .io-table-tools button {
+            background: var(--bg-body); border: 1px solid var(--border);
+            border-radius: 4px; cursor: pointer; padding: 4px 8px;
+            font-size: 11px; color: var(--text-main); font-weight: 600;
+            display: flex; align-items: center; justify-content: center; transition: 0.1s;
+        }
+        .io-table-tools button:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .color-group { display: flex; gap: 10px; margin-bottom: 15px; }
+        .color-group input[type="color"] { padding: 2px; height: 35px; cursor: pointer; }
     </style>
     <script>
         if (localStorage.getItem('appTheme') === 'dark') {
@@ -312,10 +337,20 @@
     </script>
 </head>
 <body>
-
     <div class="mobile-overlay" id="mobile-overlay"></div>
     <div class="modal-wrap" id="modal-wrap"><div class="modal" id="modal-content"></div></div>
     <div id="toast">Press ESC or Long Hold to exit</div>
+    
+    <div id="context-menu" class="context-menu">
+        <div class="context-menu-item" data-action="cut"><svg class="icon" viewBox="0 0 24 24"><path d="M14 4l-4 8M10 20l4-8"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/></svg> Cut</div>
+        <div class="context-menu-item" data-action="copy"><svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</div>
+        <div class="context-menu-item" data-action="paste"><svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Paste</div>
+        <div class="context-menu-divider"></div>
+        <div class="context-menu-item" data-action="selectAll"><svg class="icon" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> Select All</div>
+        <div class="context-menu-item" data-action="clearFormat"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Clear Format</div>
+        <div class="context-menu-divider"></div>
+        <div class="context-menu-item" data-action="setCss"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Set Custom CSS</div>
+    </div>
 
     <div class="app-shell">
         <div id="sidebar">
@@ -323,7 +358,7 @@
                 <div class="sb-actions">
                     <button class="sb-btn" id="btn-new" title="New Document"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
                     <button class="sb-btn" id="btn-rename" title="Rename"><svg class="icon" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></button>
-                    <button class="sb-btn" id="btn-download" title="Export HTML"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+                    <button class="sb-btn" id="btn-download" title="Export Document"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
                     <button class="sb-btn danger" id="btn-delete" title="Delete"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
                 </div>
                 <div class="search-wrap">
@@ -333,14 +368,12 @@
             </div>
             <div class="file-list" id="file-list"></div>
         </div>
-
         <div id="main">
             <div class="top-bar">
                 <button class="tool-btn" id="toggle-sidebar" style="padding:0 8px;"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg></button>
                 <input type="text" id="doc-title" value="Nothing" readonly class="empty">
                 <button class="tool-btn" id="toggle-theme" style="padding:0 8px;"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg></button>
             </div>
-
             <div class="toolbar-container" id="toolbar-container">
                 <div class="toolbar-track">
                     <div class="toolbar-slide" id="toolbar-cats"></div>
@@ -350,8 +383,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="editor-scroller">
+            <div class="editor-scroller" id="editor-scroller">
                 <div id="empty-state" class="empty-state">
                     <svg class="empty-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     <div class="empty-text">No File Selected</div>
@@ -359,15 +391,34 @@
                 
                 <div id="editor" class="page" contenteditable="true"></div>
                 <textarea id="source-editor" class="source-view"></textarea>
-            </div>
+                
+                <!-- NEW OVERLAY WITH TABLE TOOLS -->
+                <div id="interactive-overlay" class="interactive-overlay">
+                    <div id="io-table-tools" class="io-table-tools" style="display:none;">
+                        <button title="Add Row Above" onclick="TableManager.addRow(-1)">+R↑</button>
+                        <button title="Add Row Below" onclick="TableManager.addRow(1)">+R↓</button>
+                        <button title="Delete Row" onclick="TableManager.deleteRow()">-R</button>
+                        <div class="divider"></div>
+                        <button title="Add Col Left" onclick="TableManager.addCol(-1)">+C←</button>
+                        <button title="Add Col Right" onclick="TableManager.addCol(1)">+C→</button>
+                        <button title="Delete Col" onclick="TableManager.deleteCol()">-C</button>
+                        <div class="divider"></div>
+                        <button title="Increase Width" onclick="TableManager.resize(20, 0)">W+</button>
+                        <button title="Decrease Width" onclick="TableManager.resize(-20, 0)">W-</button>
+                        <button title="Increase Height" onclick="TableManager.resize(0, 20)">H+</button>
+                        <button title="Decrease Height" onclick="TableManager.resize(0, -20)">H-</button>
+                    </div>
 
+                    <div id="io-drag" class="io-drag-handle"><svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M19 9l3 3-3 3M9 19l3 3 3-3M2 12h20M12 2v20"/></svg></div>
+                    <div id="io-resize" class="io-resize-handle"></div>
+                </div>
+            </div>
             <div class="status-bar">
                 <span id="status-msg">Ready</span>
                 <span id="word-count">0 Words</span>
             </div>
         </div>
     </div>
-
     <script>
         const ICONS = {
             home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>',
@@ -387,25 +438,27 @@
             listOl: '<line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/>',
             link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
             image: '<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
+            video: '<rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line>',
+            shape: '<path d="M12 2l8 8-8 8-8-8z"/><path d="M22 22H2v-2h20z"/>',
             full: '<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>',
             source: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
             sub: '<path d="m4 16 3-8 3 8m-5-3h4"/><path d="m19 19-3 3-3-3m3 3v-9"/>', 
             sup: '<path d="m4 16 3-8 3 8m-5-3h4"/><path d="m19 5-3 3-3-3m3 3v9"/>',
             clear: '<path d="M18 6 6 18M6 6l12 12"/>',
-            color: '<circle cx="12" cy="12" r="10"/><path d="M12 12v6"/>',
             table: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>',
-            print: '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>'
+            print: '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+            spacing: '<path d="M8 9l4-4 4 4"/><path d="M16 15l-4 4-4-4"/><line x1="12" y1="5" x2="12" y2="19"/>',
+            weight: '<path d="M4 7V4h16v3M9 20h6M12 4v16"/>',
+            gradient: '<circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/>'
         };
-
         const CATEGORIES = {
             'Home': ICONS.home,
             'Format': ICONS.format,
             'Insert': ICONS.insert,
             'View': ICONS.view
         };
-
         const TOOLS_CONFIG = {
-            'Home': [
+            'Home':[
                 { type: 'btn', icon: ICONS.undo, cmd: 'undo', title: 'Undo' },
                 { type: 'btn', icon: ICONS.redo, cmd: 'redo', title: 'Redo' },
                 { type: 'sep' },
@@ -419,47 +472,48 @@
                 { type: 'color', cmd: 'foreColor', title: 'Text Color' },
                 { type: 'color', cmd: 'hiliteColor', title: 'Highlight' }
             ],
-            'Format': [
+            'Format':[
                 { type: 'btn', icon: ICONS.left, cmd: 'justifyLeft', title: 'Left' },
                 { type: 'btn', icon: ICONS.center, cmd: 'justifyCenter', title: 'Center' },
                 { type: 'btn', icon: ICONS.right, cmd: 'justifyRight', title: 'Right' },
                 { type: 'sep' },
                 { type: 'select', cmd: 'formatBlock', opts: [['P','Paragraph'],['H1','Heading 1'],['H2','Heading 2'],['H3','Heading 3'],['BLOCKQUOTE','Quote'],['PRE','Code Block']] },
                 { type: 'sep' },
+                { type: 'btn', icon: ICONS.gradient, custom: 'textGradient', title: 'Gradient Text' },
+                { type: 'btn', icon: ICONS.spacing, custom: 'textSpacing', title: 'Letter Spacing' },
+                { type: 'btn', icon: ICONS.weight, custom: 'fontWeight', title: 'Font Weight' },
+                { type: 'sep' },
                 { type: 'btn', icon: ICONS.listUl, cmd: 'insertUnorderedList', title: 'Bullets' },
                 { type: 'btn', icon: ICONS.listOl, cmd: 'insertOrderedList', title: 'Numbers' },
-                { type: 'sep' },
-                { type: 'btn', icon: ICONS.sub, cmd: 'subscript', title: 'Sub' },
-                { type: 'btn', icon: ICONS.sup, cmd: 'superscript', title: 'Super' },
                 { type: 'btn', icon: ICONS.clear, cmd: 'removeFormat', title: 'Clear' }
             ],
-            'Insert': [
+            'Insert':[
                 { type: 'btn', icon: ICONS.link, custom: 'link', title: 'Link' },
                 { type: 'btn', icon: ICONS.image, custom: 'image', title: 'Image' },
+                { type: 'btn', icon: ICONS.video, custom: 'video', title: 'Video' },
+                { type: 'btn', icon: ICONS.shape, custom: 'shape', title: 'Shape' },
                 { type: 'btn', icon: ICONS.table, custom: 'table', title: 'Table' },
                 { type: 'btn', icon: ICONS.listUl, cmd: 'insertHorizontalRule', title: 'Divider' },
                 { type: 'btn', icon: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>', custom: 'date', title: 'Date' }
             ],
-            'View': [
+            'View':[
                 { type: 'btn', icon: ICONS.full, custom: 'fullscreen', title: 'Fullscreen' },
                 { type: 'btn', icon: ICONS.source, custom: 'source', title: 'Source' },
                 { type: 'btn', icon: ICONS.print, custom: 'print', title: 'Print' }
             ]
         };
-
+        
         let db;
         let currentDocId = null;
         let isMobile = window.innerWidth <= 768;
         let longPressTimer;
-
+        
         const UI = {
             $: id => document.getElementById(id),
-            
             toggleSidebar(force) {
                 const sb = UI.$('sidebar');
                 const ov = UI.$('mobile-overlay');
                 const isMobileOpen = sb.classList.contains('mobile-open');
-
                 if (window.innerWidth > 768) {
                     if (force === false) sb.classList.add('collapsed');
                     else if (force === true) sb.classList.remove('collapsed');
@@ -467,37 +521,28 @@
                     ov.classList.remove('active');
                 } else {
                     const shouldOpen = force !== undefined ? force : !isMobileOpen;
-                    if (shouldOpen) {
-                        sb.classList.add('mobile-open');
-                        ov.classList.add('active');
-                    } else {
-                        sb.classList.remove('mobile-open');
-                        ov.classList.remove('active');
-                    }
+                    if (shouldOpen) { sb.classList.add('mobile-open'); ov.classList.add('active'); } 
+                    else { sb.classList.remove('mobile-open'); ov.classList.remove('active'); }
                 }
             },
-
             toast(msg) {
                 const t = UI.$('toast');
                 t.innerText = msg;
                 t.classList.add('visible');
                 setTimeout(() => t.classList.remove('visible'), 3000);
             },
-
             modal(html) {
                 const w = UI.$('modal-wrap');
                 UI.$('modal-content').innerHTML = html;
                 w.style.display = 'flex';
                 return { close: () => w.style.display = 'none' };
             },
-
-            prompt(title, cb) {
-                const m = UI.modal(`<h3>${title}</h3><input id="prompt-in"><div class="modal-btns"><button class="btn btn-ghost" id="p-cancel">Cancel</button><button class="btn btn-primary" id="p-ok">OK</button></div>`);
+            prompt(title, cb, placeholder="") {
+                const m = UI.modal(`<h3>${title}</h3><input id="prompt-in" placeholder="${placeholder}"><div class="modal-btns"><button class="btn btn-ghost" id="p-cancel">Cancel</button><button class="btn btn-primary" id="p-ok">OK</button></div>`);
                 UI.$('p-cancel').onclick = m.close;
                 UI.$('p-ok').onclick = () => { cb(UI.$('prompt-in').value); m.close(); };
                 setTimeout(() => UI.$('prompt-in').focus(), 50);
             },
-
             renderCategories() {
                 const catContainer = UI.$('toolbar-cats');
                 catContainer.innerHTML = '';
@@ -509,7 +554,6 @@
                     catContainer.appendChild(btn);
                 });
             },
-
             openCategory(cat) {
                 if (!currentDocId) return;
                 const toolArea = UI.$('toolbar-tools-area');
@@ -518,12 +562,10 @@
                 TOOLS_CONFIG[cat].forEach(t => {
                     if (t.type === 'sep') {
                         const d = document.createElement('div');
-                        d.className = 'divider';
-                        toolArea.appendChild(d);
+                        d.className = 'divider'; toolArea.appendChild(d);
                     } else if (t.type === 'btn' || t.type === 'color') {
                         const b = document.createElement('button');
-                        b.className = 'tool-btn';
-                        b.title = t.title || '';
+                        b.className = 'tool-btn'; b.title = t.title || '';
                         const iconHtml = `<svg class="icon" viewBox="0 0 24 24">${t.icon || '<circle cx="12" cy="12" r="10"/>'}</svg>`;
                         b.innerHTML = `${iconHtml}<span>${t.title}</span>`;
                         
@@ -531,7 +573,7 @@
                             b.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l3.5 14.5L13 18l5-5L18 13l-1.5-7.5L2 2z"/></svg><span>${t.title}</span>`;
                             b.onclick = () => {
                                 const i = document.createElement('input'); i.type = 'color';
-                                i.onchange = e => { document.execCommand(t.cmd, false, e.target.value); };
+                                i.onchange = e => { document.execCommand(t.cmd, false, e.target.value); App.autoSave(); };
                                 i.click();
                             };
                         } else {
@@ -539,56 +581,286 @@
                                 if (t.cmd) document.execCommand(t.cmd, false, null);
                                 else if (t.custom) App.handleCustom(t.custom);
                                 UI.updateToolbarState();
+                                App.autoSave(); // Save formatting automatically
                             };
                             if (t.cmd) b.dataset.cmd = t.cmd;
                         }
                         toolArea.appendChild(b);
                     } else if (t.type === 'select') {
-                        const s = document.createElement('select');
-                        s.className = 'tool-select';
+                        const s = document.createElement('select'); s.className = 'tool-select';
                         if(t.id) s.id = t.id; 
                         t.opts.forEach(o => {
                             const op = document.createElement('option');
-                            op.value = o[0]; op.innerText = o[1];
-                            s.appendChild(op);
+                            op.value = o[0]; op.innerText = o[1]; s.appendChild(op);
                         });
                         s.onchange = () => { 
                             document.execCommand(t.cmd, false, s.value); 
-                            UI.updateToolbarState();
+                            UI.updateToolbarState(); 
+                            App.autoSave(); // Save formatting automatically
                         };
-                        s.dataset.cmd = t.cmd;
-                        toolArea.appendChild(s);
+                        s.dataset.cmd = t.cmd; toolArea.appendChild(s);
                     }
                 });
-
                 UI.$('toolbar-container').classList.add('show-tools');
                 UI.updateToolbarState();
             },
-
-            closeTools() {
-                UI.$('toolbar-container').classList.remove('show-tools');
-            },
-
+            closeTools() { UI.$('toolbar-container').classList.remove('show-tools'); },
             updateToolbarState() {
                 document.querySelectorAll('.tool-btn[data-cmd]').forEach(b => {
                     if (document.queryCommandState(b.dataset.cmd)) b.classList.add('active');
                     else b.classList.remove('active');
                 });
-
                 const fontSelect = UI.$('font-fam');
                 if (fontSelect) {
                     let font = document.queryCommandValue('fontName');
                     font = font.replace(/['"]+/g, '');
                     let match = false;
                     for(let i=0; i<fontSelect.options.length; i++){
-                        if(fontSelect.options[i].value.toLowerCase() === font.toLowerCase()){
-                            fontSelect.selectedIndex = i;
-                            match = true;
-                            break;
-                        }
+                        if(fontSelect.options[i].value.toLowerCase() === font.toLowerCase()){ fontSelect.selectedIndex = i; match = true; break; }
                     }
                     if(!match) fontSelect.selectedIndex = -1; 
                 }
+            }
+        };
+
+        // --- INTERACTIVE MANAGER (Resizing, Dragging, Table Context) ---
+        const InteractiveManager = {
+            activeTarget: null,
+            activeCell: null,
+            init() {
+                this.overlay = UI.$('interactive-overlay');
+                this.dragHandle = UI.$('io-drag');
+                this.resizeHandle = UI.$('io-resize');
+                this.tableTools = UI.$('io-table-tools');
+                this.scroller = UI.$('editor-scroller');
+                this.editor = UI.$('editor');
+                
+                this.editor.addEventListener('mousedown', e => this.checkTarget(e));
+                this.editor.addEventListener('touchstart', e => this.checkTarget(e));
+                
+                this.scroller.addEventListener('scroll', () => this.update());
+                window.addEventListener('resize', () => this.update());
+                this.editor.addEventListener('keyup', () => this.update());
+                
+                this.bindResize();
+                this.bindDrag();
+            },
+            checkTarget(e) {
+                const validTags =['IMG', 'VIDEO', 'TABLE', 'HR'];
+                const t = e.target;
+
+                // Handle Table Inner Clicks specifically for tracking the active cell
+                if (t.tagName === 'TD' || t.tagName === 'TH') {
+                    this.activeCell = t;
+                    this.activeTarget = t.closest('TABLE');
+                    this.update();
+                    return;
+                }
+
+                if (validTags.includes(t.tagName) || t.classList.contains('custom-shape')) {
+                    this.activeTarget = t;
+                    if (t.tagName !== 'TABLE') this.activeCell = null;
+                    this.update();
+                } else {
+                    if(!e.target.closest('#interactive-overlay')) {
+                        this.activeTarget = null;
+                        this.activeCell = null;
+                        this.update();
+                    }
+                }
+            },
+            update() {
+                if(!this.activeTarget) { this.overlay.style.display = 'none'; return; }
+                const rect = this.activeTarget.getBoundingClientRect();
+                const scrollerRect = this.scroller.getBoundingClientRect();
+                
+                this.overlay.style.display = 'block';
+                this.overlay.style.top = (rect.top - scrollerRect.top + this.scroller.scrollTop) + 'px';
+                this.overlay.style.left = (rect.left - scrollerRect.left + this.scroller.scrollLeft) + 'px';
+                this.overlay.style.width = rect.width + 'px';
+                this.overlay.style.height = rect.height + 'px';
+
+                // Display Table Tools appropriately
+                if (this.activeTarget.tagName === 'TABLE') {
+                    this.tableTools.style.display = 'flex';
+                } else {
+                    this.tableTools.style.display = 'none';
+                }
+            },
+            bindResize() {
+                this.resizeHandle.addEventListener('pointerdown', e => {
+                    if(!this.activeTarget) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const startX = e.clientX;
+                    const startY = e.clientY;
+                    const startW = this.activeTarget.offsetWidth;
+                    const startH = this.activeTarget.offsetHeight;
+
+                    const onMove = e => {
+                        this.activeTarget.style.width = Math.max(20, startW + (e.clientX - startX)) + 'px';
+                        this.activeTarget.style.height = Math.max(20, startH + (e.clientY - startY)) + 'px';
+                        this.update();
+                    };
+                    const onUp = () => {
+                        document.removeEventListener('pointermove', onMove);
+                        document.removeEventListener('pointerup', onUp);
+                        App.autoSave();
+                    };
+                    document.addEventListener('pointermove', onMove);
+                    document.addEventListener('pointerup', onUp);
+                });
+            },
+            bindDrag() {
+                this.dragHandle.addEventListener('pointerdown', e => {
+                    if(!this.activeTarget) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const ghost = this.activeTarget.cloneNode(true);
+                    ghost.style.position = 'fixed';
+                    ghost.style.opacity = '0.6';
+                    ghost.style.pointerEvents = 'none';
+                    ghost.style.zIndex = '9999';
+                    
+                    const rect = this.activeTarget.getBoundingClientRect();
+                    let offsetX = e.clientX - rect.left;
+                    let offsetY = e.clientY - rect.top;
+                    
+                    document.body.appendChild(ghost);
+                    
+                    const onMove = e => {
+                        ghost.style.left = (e.clientX - offsetX) + 'px';
+                        ghost.style.top = (e.clientY - offsetY) + 'px';
+                    };
+                    
+                    const onUp = e => {
+                        document.removeEventListener('pointermove', onMove);
+                        document.removeEventListener('pointerup', onUp);
+                        ghost.remove();
+                        
+                        let range;
+                        if(document.caretRangeFromPoint) {
+                            range = document.caretRangeFromPoint(e.clientX, e.clientY);
+                        } else if(document.caretPositionFromPoint) {
+                            const pos = document.caretPositionFromPoint(e.clientX, e.clientY);
+                            if(pos) {
+                                range = document.createRange();
+                                range.setStart(pos.offsetNode, pos.offset);
+                                range.collapse(true);
+                            }
+                        }
+                        
+                        if(range && this.editor.contains(range.startContainer)) {
+                            range.insertNode(this.activeTarget);
+                            this.update();
+                            App.autoSave();
+                        } else {
+                            this.update(); 
+                        }
+                    };
+                    
+                    document.addEventListener('pointermove', onMove);
+                    document.addEventListener('pointerup', onUp);
+                });
+            }
+        };
+
+        // --- NEW: TABLE MANAGER LOGIC ---
+        window.TableManager = {
+            getActiveCell() {
+                const IM = InteractiveManager;
+                let cell = IM.activeCell;
+                if (!cell && IM.activeTarget && IM.activeTarget.tagName === 'TABLE') {
+                    // Fallback to first cell if clicked borders
+                    const tbody = IM.activeTarget.querySelector('tbody') || IM.activeTarget;
+                    if (tbody.children.length > 0 && tbody.children[0].children.length > 0) {
+                        cell = tbody.children[0].children[0];
+                    }
+                }
+                return cell;
+            },
+            addRow(offset) {
+                const cell = this.getActiveCell();
+                if (!cell) return;
+                const tr = cell.closest('TR');
+                const tbody = tr.parentNode;
+                const newTr = document.createElement('TR');
+                
+                for(let i=0; i<tr.children.length; i++) {
+                    const td = document.createElement(tr.children[i].tagName);
+                    td.innerHTML = '&nbsp;'; // default empty content
+                    newTr.appendChild(td);
+                }
+                if (offset < 0) tbody.insertBefore(newTr, tr);
+                else tbody.insertBefore(newTr, tr.nextSibling);
+                
+                App.autoSave(); InteractiveManager.update();
+            },
+            addCol(offset) {
+                const cell = this.getActiveCell();
+                if (!cell) return;
+                const tr = cell.closest('TR');
+                const tbody = tr.parentNode;
+                const cellIdx = Array.from(tr.children).indexOf(cell);
+                
+                Array.from(tbody.children).forEach(row => {
+                    const targetCell = row.children[cellIdx];
+                    const newCell = document.createElement(targetCell ? targetCell.tagName : 'TD');
+                    newCell.innerHTML = '&nbsp;';
+                    if (offset < 0) row.insertBefore(newCell, targetCell);
+                    else {
+                        if (targetCell) row.insertBefore(newCell, targetCell.nextSibling);
+                        else row.appendChild(newCell);
+                    }
+                });
+                App.autoSave(); InteractiveManager.update();
+            },
+            deleteRow() {
+                const cell = this.getActiveCell();
+                if (!cell) return;
+                const tr = cell.closest('TR');
+                const tbody = tr.parentNode;
+                tr.remove();
+                
+                if (tbody.children.length === 0) {
+                    InteractiveManager.activeTarget.remove();
+                    InteractiveManager.activeTarget = null;
+                    InteractiveManager.activeCell = null;
+                } else {
+                    InteractiveManager.activeCell = tbody.children[0].children[0];
+                }
+                App.autoSave(); InteractiveManager.update();
+            },
+            deleteCol() {
+                const cell = this.getActiveCell();
+                if (!cell) return;
+                const tr = cell.closest('TR');
+                const tbody = tr.parentNode;
+                const cellIdx = Array.from(tr.children).indexOf(cell);
+                
+                Array.from(tbody.children).forEach(row => {
+                    if(row.children[cellIdx]) row.children[cellIdx].remove();
+                });
+                
+                if (tbody.children[0] && tbody.children[0].children.length === 0) {
+                    InteractiveManager.activeTarget.remove();
+                    InteractiveManager.activeTarget = null;
+                    InteractiveManager.activeCell = null;
+                } else if (InteractiveManager.activeTarget) {
+                    InteractiveManager.activeCell = tbody.children[0].children[0];
+                }
+                App.autoSave(); InteractiveManager.update();
+            },
+            resize(dw, dh) {
+                const t = InteractiveManager.activeTarget;
+                if (!t || t.tagName !== 'TABLE') return;
+                t.style.width = Math.max(50, t.offsetWidth + dw) + 'px';
+                if (dh !== 0) {
+                    t.style.height = Math.max(20, t.offsetHeight + dh) + 'px';
+                }
+                App.autoSave(); InteractiveManager.update();
             }
         };
 
@@ -596,158 +868,227 @@
             async init() {
                 await this.initDB();
                 this.bindEvents();
+                InteractiveManager.init();
                 this.refreshFiles();
                 UI.renderCategories();
                 this.setNoFileState();
             },
-
             initDB() {
                 return new Promise(r => {
-                    const req = indexedDB.open("UltHTMLWriter_V2", 1);
+                    const req = indexedDB.open("UltHTMLWriter_V3", 1);
                     req.onupgradeneeded = e => e.target.result.createObjectStore("docs", { keyPath: "id", autoIncrement: true });
                     req.onsuccess = e => { db = e.target.result; r(); };
                 });
             },
-
+            wrapSelection(customCSS) {
+                const sel = window.getSelection();
+                if (!sel.rangeCount || sel.isCollapsed) { UI.toast("Please select text first!"); return null; }
+                const range = sel.getRangeAt(0);
+                const span = document.createElement('span');
+                span.style.cssText = customCSS;
+                try {
+                    span.appendChild(range.extractContents());
+                    range.insertNode(span);
+                    return span;
+                } catch(e) { UI.toast("Error wrapping selection."); return null;}
+            },
             bindEvents() {
                 const ed = UI.$('editor');
                 
                 ed.addEventListener('mouseup', UI.updateToolbarState);
-                ed.addEventListener('keyup', () => {
-                    UI.updateToolbarState();
-                    this.autoSave();
-                    this.updateWordCount();
+                ed.addEventListener('keyup', () => { UI.updateToolbarState(); this.autoSave(); this.updateWordCount(); });
+                
+                ed.addEventListener('keydown', e => {
+                    if (!currentDocId) return;
+                    if (e.ctrlKey || e.metaKey) {
+                        const key = e.key.toLowerCase();
+                        let handled = false;
+                        if (key === 'z') { if (e.shiftKey) document.execCommand('redo'); else document.execCommand('undo'); handled = true; } 
+                        else if (key === 'y') { document.execCommand('redo'); handled = true; } 
+                        else if (key === 'b') { document.execCommand('bold'); handled = true; } 
+                        else if (key === 'i') { document.execCommand('italic'); handled = true; } 
+                        else if (key === 'u') { document.execCommand('underline'); handled = true; } 
+                        else if (key === 's') { App.autoSave(); UI.toast("Saved"); handled = true; }
+                        
+                        if (handled) { e.preventDefault(); UI.updateToolbarState(); App.autoSave(); }
+                    }
                 });
 
+                // Context Menu
+                const cm = UI.$('context-menu');
+                let contextTarget = null;
+
+                ed.addEventListener('contextmenu', e => {
+                    if(!currentDocId) return;
+                    e.preventDefault();
+                    
+                    contextTarget = null;
+                    if(InteractiveManager.activeTarget) {
+                        contextTarget = InteractiveManager.activeTarget;
+                    } else if (window.getSelection().rangeCount > 0 && !window.getSelection().isCollapsed) {
+                        contextTarget = "selection";
+                    } else {
+                        contextTarget = e.target;
+                    }
+
+                    cm.style.display = 'block';
+                    let x = e.pageX, y = e.pageY;
+                    if (x + cm.offsetWidth > window.innerWidth) x = window.innerWidth - cm.offsetWidth - 10;
+                    if (y + cm.offsetHeight > window.innerHeight) y = window.innerHeight - cm.offsetHeight - 10;
+                    cm.style.left = x + 'px'; cm.style.top = y + 'px';
+                });
+                
+                document.addEventListener('click', e => { if(!e.target.closest('#context-menu')) cm.style.display = 'none'; });
+                
+                document.querySelectorAll('.context-menu-item').forEach(item => {
+                    item.onclick = async () => {
+                        const action = item.dataset.action;
+                        ed.focus();
+                        try {
+                            if (action === 'cut') { document.execCommand('cut'); App.autoSave(); }
+                            else if (action === 'copy') document.execCommand('copy');
+                            else if (action === 'paste') {
+                                try { 
+                                    const text = await navigator.clipboard.readText(); 
+                                    document.execCommand('insertText', false, text); 
+                                    App.autoSave(); 
+                                } catch(err) { UI.toast("Use Ctrl+V to paste."); }
+                            }
+                            else if (action === 'selectAll') document.execCommand('selectAll');
+                            else if (action === 'clearFormat') { document.execCommand('removeFormat'); App.autoSave(); }
+                            else if (action === 'setCss') {
+                                let tgt = contextTarget;
+                                if(tgt === "selection") tgt = App.wrapSelection("");
+                                if(!tgt) return;
+                                
+                                const m = UI.modal(`
+                                    <h3>Set Custom CSS</h3>
+                                    <div style="font-size:11px; color:var(--text-muted); margin-bottom:10px;">Apply custom styles (e.g. <code>border: 2px solid red; background: linear-gradient(red, blue);</code>)</div>
+                                    <textarea id="css-in">${tgt.style.cssText}</textarea>
+                                    <div class="modal-btns">
+                                        <button class="btn btn-ghost" id="css-cancel">Cancel</button>
+                                        <button class="btn btn-primary" id="css-save">Apply</button>
+                                    </div>
+                                `);
+                                UI.$('css-cancel').onclick = m.close;
+                                UI.$('css-save').onclick = () => {
+                                    tgt.style.cssText = UI.$('css-in').value;
+                                    InteractiveManager.update();
+                                    App.autoSave();
+                                    m.close();
+                                }
+                            }
+                        } catch (err) {}
+                        cm.style.display = 'none';
+                        UI.updateToolbarState();
+                    };
+                });
+                
                 UI.$('toolbar-back').onclick = UI.closeTools;
                 UI.$('toggle-sidebar').onclick = () => UI.toggleSidebar();
                 UI.$('mobile-overlay').onclick = () => UI.toggleSidebar(false);
                 
-                // MOUSE WHEEL SCROLL FIX
                 document.querySelectorAll('.toolbar-slide').forEach(el => {
-                    el.addEventListener('wheel', (e) => {
-                        if (e.deltaY !== 0) {
-                            e.preventDefault();
-                            el.scrollLeft += e.deltaY;
-                        }
-                    });
-                });
-
-                UI.$('toggle-theme').onclick = () => {
-                    document.body.classList.toggle('dark-mode');
-                    document.documentElement.classList.toggle('dark-mode');
-                    const isDark = document.body.classList.contains('dark-mode');
-                    localStorage.setItem('appTheme', isDark ? 'dark' : 'light');
-                };
-
-                UI.$('btn-new').onclick = () => UI.prompt("Document Name", name => {
-                    if (name) this.saveDoc({ title: name, content: '<p>Start typing...</p>' }).then((id) => this.loadDoc(id));
+                    el.addEventListener('wheel', (e) => { if (e.deltaY !== 0) { e.preventDefault(); el.scrollLeft += e.deltaY; } });
                 });
                 
-                // NEW: Rename Function
-                UI.$('btn-rename').onclick = () => {
-                    if (!currentDocId) return UI.toast("No file selected");
-                    UI.prompt("Rename File", (newName) => {
-                        if(newName) {
-                            UI.$('doc-title').value = newName;
-                            this.autoSave();
-                        }
-                    });
+                UI.$('toggle-theme').onclick = () => {
+                    document.body.classList.toggle('dark-mode'); document.documentElement.classList.toggle('dark-mode');
+                    localStorage.setItem('appTheme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
                 };
-
+                
+                UI.$('btn-new').onclick = () => UI.prompt("Document Name", name => { if (name) this.saveDoc({ title: name, content: '<p>Start typing...</p>' }).then((id) => this.loadDoc(id)); });
+                UI.$('btn-rename').onclick = () => { if (!currentDocId) return UI.toast("No file"); UI.prompt("Rename File", newName => { if(newName) { UI.$('doc-title').value = newName; this.autoSave(); } }); };
                 UI.$('btn-delete').onclick = () => {
                     if (currentDocId && confirm("Delete this file?")) {
                         const tx = db.transaction("docs", "readwrite");
                         tx.objectStore("docs").delete(currentDocId);
-                        tx.oncomplete = () => {
-                            this.setNoFileState();
-                            this.refreshFiles();
-                        };
+                        tx.oncomplete = () => { this.setNoFileState(); this.refreshFiles(); };
                     }
                 };
-
+                
                 UI.$('btn-download').onclick = () => {
                     if(!currentDocId) return;
-                    const blob = new Blob([UI.$('editor').innerHTML], {type:'text/html'});
-                    const a = document.createElement('a');
-                    a.href = URL.createObjectURL(blob);
-                    a.download = (UI.$('doc-title').value || 'document') + '.html';
-                    a.click();
+                    const title = UI.$('doc-title').value || 'document';
+                    const m = UI.modal(`<h3>Export Document</h3><div class="export-btn-group"><button class="btn btn-primary" id="exp-html">Export HTML</button><button class="btn btn-ghost" id="exp-txt">Export Plain Text</button></div><div class="modal-btns" style="margin-top:15px"><button class="btn btn-ghost" id="exp-cancel">Cancel</button></div>`);
+                    UI.$('exp-html').onclick = () => { this.downloadBlob(new Blob([UI.$('editor').innerHTML], {type:'text/html'}), title + '.html'); m.close(); };
+                    UI.$('exp-txt').onclick = () => { this.downloadBlob(new Blob([UI.$('editor').innerText], {type:'text/plain'}), title + '.txt'); m.close(); };
+                    UI.$('exp-cancel').onclick = m.close;
                 };
 
                 UI.$('file-search').oninput = e => this.refreshFiles(e.target.value);
                 UI.$('doc-title').oninput = () => this.autoSave();
-
-                document.addEventListener('keydown', e => {
-                    if(e.key === 'Escape' && document.body.classList.contains('fullscreen')) {
-                        App.toggleFullscreen(false);
-                    }
-                });
-
-                const startLongPress = (e) => {
-                    if(!document.body.classList.contains('fullscreen')) return;
-                    longPressTimer = setTimeout(() => App.toggleFullscreen(false), 1000);
-                };
-                const endLongPress = () => clearTimeout(longPressTimer);
                 
-                document.addEventListener('mousedown', startLongPress);
-                document.addEventListener('touchstart', startLongPress);
-                document.addEventListener('mouseup', endLongPress);
-                document.addEventListener('touchend', endLongPress);
+                document.addEventListener('keydown', e => { if(e.key === 'Escape' && document.body.classList.contains('fullscreen')) App.toggleFullscreen(false); });
+                const startLP = () => { if(document.body.classList.contains('fullscreen')) longPressTimer = setTimeout(() => App.toggleFullscreen(false), 1000); };
+                const endLP = () => clearTimeout(longPressTimer);
+                document.addEventListener('mousedown', startLP); document.addEventListener('touchstart', startLP);
+                document.addEventListener('mouseup', endLP); document.addEventListener('touchend', endLP);
             },
-
+            downloadBlob(blob, filename) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename; a.click(); },
             handleCustom(action) {
                 const ed = UI.$('editor');
-                if (action === 'link') UI.prompt("Enter URL", url => document.execCommand('createLink', false, url));
-                if (action === 'image') UI.prompt("Enter Image URL", url => document.execCommand('insertImage', false, url));
-                if (action === 'table') document.execCommand('insertHTML', false, '<table style="width:100%; border:1px solid #ccc;"><tr><td>Cell 1</td><td>Cell 2</td></tr><tr><td>Cell 3</td><td>Cell 4</td></tr></table>');
-                if (action === 'date') document.execCommand('insertHTML', false, new Date().toLocaleDateString());
+                if (action === 'link') UI.prompt("Enter URL", url => { document.execCommand('createLink', false, url); App.autoSave(); });
+                
+                if (action === 'image') {
+                    const m = UI.modal(`<h3>Insert Image</h3><button class="btn btn-ghost" style="width:100%; border:1px dashed var(--text-muted); padding:15px; margin-bottom:10px;" id="upload-img-btn"><svg class="icon" style="margin-right:5px; vertical-align:middle" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg> Upload from Device</button><div style="text-align:center; margin-bottom:10px; color:var(--text-muted); font-size:12px;">OR ENTER URL</div><input id="img-url-in" placeholder="https://..."><input type="file" id="hidden-img-in" accept="image/*" style="display:none;"><div class="modal-btns"><button class="btn btn-ghost" id="img-cancel">Cancel</button><button class="btn btn-primary" id="img-ok">Insert URL</button></div>`);
+                    UI.$('upload-img-btn').onclick = () => UI.$('hidden-img-in').click();
+                    UI.$('hidden-img-in').onchange = e => { const file = e.target.files[0]; if(file) { const reader = new FileReader(); reader.onload = re => { document.execCommand('insertImage', false, re.target.result); App.autoSave(); m.close(); }; reader.readAsDataURL(file); } };
+                    UI.$('img-cancel').onclick = m.close;
+                    UI.$('img-ok').onclick = () => { const url = UI.$('img-url-in').value; if(url) { document.execCommand('insertImage', false, url); App.autoSave(); } m.close(); };
+                }
+
+                if (action === 'video') UI.prompt("Enter Video URL (.mp4, etc):", url => { document.execCommand('insertHTML', false, `<video src="${url}" controls style="width:300px; height:auto;"></video>`); App.autoSave(); });
+                if (action === 'table') { document.execCommand('insertHTML', false, '<table style="width:100%; border-collapse: collapse; margin: 10px 0;"><tr><td>Cell 1</td><td>Cell 2</td></tr><tr><td>Cell 3</td><td>Cell 4</td></tr></table>'); App.autoSave(); }
+                if (action === 'date') { document.execCommand('insertHTML', false, new Date().toLocaleDateString()); App.autoSave(); }
                 if (action === 'print') window.print();
                 
-                if (action === 'fullscreen') this.toggleFullscreen(true);
+                // Shape Insertion
+                if (action === 'shape') {
+                    const m = UI.modal(`<h3>Insert Shape</h3><div class="export-btn-group"><button class="btn btn-primary" id="sh-rect">Rectangle</button><button class="btn btn-primary" id="sh-circle">Circle</button></div><div class="modal-btns" style="margin-top:15px"><button class="btn btn-ghost" id="sh-cancel">Cancel</button></div>`);
+                    UI.$('sh-rect').onclick = () => { document.execCommand('insertHTML', false, `<div class="custom-shape" style="width:100px; height:100px; background:var(--primary); border:2px solid transparent;"></div>`); App.autoSave(); m.close(); };
+                    UI.$('sh-circle').onclick = () => { document.execCommand('insertHTML', false, `<div class="custom-shape" style="width:100px; height:100px; background:var(--primary); border-radius:50%; border:2px solid transparent;"></div>`); App.autoSave(); m.close(); };
+                    UI.$('sh-cancel').onclick = m.close;
+                }
 
+                // Text Formatting tools
+                if (action === 'textSpacing') UI.prompt("Letter Spacing (e.g., 2px or 0.1em):", val => { App.wrapSelection(`letter-spacing: ${val};`); App.autoSave(); }, "2px");
+                if (action === 'fontWeight') UI.prompt("Font Weight (100-900 or bold):", val => { App.wrapSelection(`font-weight: ${val};`); App.autoSave(); }, "800");
+                if (action === 'textGradient') {
+                    const m = UI.modal(`<h3>Gradient Text Color</h3><div class="color-group"><input type="color" id="g-c1" value="#ff0000"><input type="color" id="g-c2" value="#0000ff"></div><div class="modal-btns"><button class="btn btn-ghost" id="g-cancel">Cancel</button><button class="btn btn-primary" id="g-ok">Apply</button></div>`);
+                    UI.$('g-cancel').onclick = m.close;
+                    UI.$('g-ok').onclick = () => {
+                        const css = `background: linear-gradient(45deg, ${UI.$('g-c1').value}, ${UI.$('g-c2').value}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display:inline;`;
+                        App.wrapSelection(css);
+                        App.autoSave();
+                        m.close();
+                    };
+                }
+
+                if (action === 'fullscreen') this.toggleFullscreen(true);
                 if (action === 'source') {
                     const src = UI.$('source-editor');
-                    if (src.style.display === 'block') {
-                        ed.innerHTML = src.value;
-                        src.style.display = 'none';
-                    } else {
-                        src.value = ed.innerHTML;
-                        src.style.display = 'block';
-                        UI.toast("Editing Code. Press ESC to exit Fullscreen.");
-                    }
+                    if (src.style.display === 'block') { ed.innerHTML = src.value; src.style.display = 'none'; InteractiveManager.update(); App.autoSave(); } 
+                    else { src.value = ed.innerHTML; src.style.display = 'block'; UI.toast("Editing Code. Press ESC to exit."); InteractiveManager.overlay.style.display = 'none'; }
                 }
             },
-
             toggleFullscreen(active) {
-                if(active) {
-                    document.body.classList.add('fullscreen');
-                    UI.toast("Press ESC or Long Hold to exit");
-                } else {
-                    document.body.classList.remove('fullscreen');
-                }
+                if(active) { document.body.classList.add('fullscreen'); UI.toast("Press ESC or Long Hold to exit"); InteractiveManager.update(); } 
+                else { document.body.classList.remove('fullscreen'); InteractiveManager.update(); }
             },
-
             setNoFileState() {
                 currentDocId = null;
-                // Switch Visibility
-                UI.$('editor').style.display = 'none';
-                UI.$('empty-state').style.display = 'flex';
-                
-                UI.$('doc-title').value = "Nothing";
-                UI.$('doc-title').classList.add('empty');
-                UI.$('doc-title').readOnly = true;
-                UI.$('status-msg').innerText = "No File Selected";
-                UI.closeTools();
+                UI.$('editor').style.display = 'none'; UI.$('empty-state').style.display = 'flex';
+                UI.$('doc-title').value = "Nothing"; UI.$('doc-title').classList.add('empty'); UI.$('doc-title').readOnly = true;
+                UI.$('status-msg').innerText = "No File Selected"; UI.$('word-count').innerText = "0 Words";
+                UI.closeTools(); InteractiveManager.activeTarget = null; InteractiveManager.update();
             },
-
             async refreshFiles(query = '') {
                 const tx = db.transaction("docs", "readonly");
                 const store = tx.objectStore("docs");
                 const req = store.getAll();
                 req.onsuccess = () => {
-                    const list = UI.$('file-list');
-                    list.innerHTML = '';
+                    const list = UI.$('file-list'); list.innerHTML = '';
                     const files = req.result.sort((a,b) => b.id - a.id);
                     files.forEach(f => {
                         if (query && !f.title.toLowerCase().includes(query.toLowerCase())) return;
@@ -759,71 +1100,50 @@
                     });
                 };
             },
-
             loadDoc(id) {
                 const tx = db.transaction("docs", "readonly");
                 tx.objectStore("docs").get(id).onsuccess = e => {
                     const doc = e.target.result;
                     if (doc) {
                         currentDocId = doc.id;
-                        const ed = UI.$('editor');
-                        ed.innerHTML = doc.content;
-                        
-                        // Switch Visibility
-                        UI.$('empty-state').style.display = 'none';
-                        ed.style.display = 'block';
-                        
+                        const ed = UI.$('editor'); ed.innerHTML = doc.content;
+                        UI.$('empty-state').style.display = 'none'; ed.style.display = 'block';
                         ed.focus();
-                        
                         const titleInput = UI.$('doc-title');
-                        titleInput.value = doc.title;
-                        titleInput.classList.remove('empty');
-                        titleInput.readOnly = false;
-
+                        titleInput.value = doc.title; titleInput.classList.remove('empty'); titleInput.readOnly = false;
                         UI.$('status-msg').innerText = "Ready";
                         this.updateWordCount();
-
                         if (isMobile) UI.toggleSidebar(false);
                         this.refreshFiles();
+                        InteractiveManager.activeTarget = null; InteractiveManager.update();
                     }
                 };
             },
-
             saveDoc(doc) {
                 return new Promise(r => {
                     const tx = db.transaction("docs", "readwrite");
-                    tx.objectStore("docs").put(doc).onsuccess = e => {
-                        currentDocId = e.target.result;
-                        r(currentDocId);
-                    };
+                    tx.objectStore("docs").put(doc).onsuccess = e => { currentDocId = e.target.result; r(currentDocId); };
                 });
             },
-
             autoSave() {
                 if (!currentDocId) return;
                 clearTimeout(this.saveTimer);
                 UI.$('status-msg').innerText = "Saving...";
                 this.saveTimer = setTimeout(() => {
-                    this.saveDoc({
-                        id: currentDocId,
-                        title: UI.$('doc-title').value,
-                        content: UI.$('editor').innerHTML
-                    }).then(() => {
-                        UI.$('status-msg').innerText = "Saved";
-                        this.refreshFiles();
+                    this.saveDoc({ id: currentDocId, title: UI.$('doc-title').value, content: UI.$('editor').innerHTML }).then(() => {
+                        UI.$('status-msg').innerText = "Saved"; this.refreshFiles();
                     });
                 }, 1000);
             },
-
             updateWordCount() {
                 const txt = UI.$('editor').innerText || "";
+                const chars = txt.length;
                 const count = txt.trim().length === 0 ? 0 : txt.trim().split(/\s+/).length;
-                UI.$('word-count').innerText = count + " Words";
+                const readTime = Math.ceil(count / 200); 
+                UI.$('word-count').innerText = `${count} Words | ${chars} Chars | ${readTime} min read`;
             }
         };
-
         App.init();
-
     </script>
 </body>
-</html>
+    </html>
